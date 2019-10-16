@@ -60,7 +60,7 @@ typedef enum
  Section: Global Variables
 */
 
-volatile uint8_t EEPROM_Buffer[5] = {1,1,1,1,1};
+volatile uint8_t EEPROM_Buffer[7] = {0, 0, 1, 0, 0, 0, 0};
 volatile uint8_t    I2C1_slaveWriteData      = 0x55;
 
 /**

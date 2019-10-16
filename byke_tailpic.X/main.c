@@ -67,59 +67,106 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     
     TMR0_StartTimer();
-    T1CONbits.TMR1ON = 1;
+    TMR1_StartTimer();
+    
+    uint16_t picTemperature = 0;
     
     while (1)
     {
+        
+        picTemperature = ADC_GetConversion(channel_Temp);
+        
+        EEPROM_Buffer[6] = picTemperature/10;
+                
        // on
         if(EEPROM_Buffer[0])                //left
             {
-           LATA =  (LATA|(0x01<<time))&(0xF8+0x01<<(time));
+            if (time == 0)
+                {
+                LATAbits.LATA4 = 0;
+                LATCbits.LATC5 = 0;
+                LATCbits.LATC4 = 1;
+                }
+            if (time == 1)
+                {
+                LATAbits.LATA4 = 0;
+                LATCbits.LATC5 = 1;
+                LATCbits.LATC4 = 0;
+                }
+            if (time == 2)
+                {
+                LATAbits.LATA4 = 1;
+                LATCbits.LATC5 = 0;
+                LATCbits.LATC4 = 0;
+                }
             }
 
         
         if(EEPROM_Buffer[1])                //right
             {
-            LATC = (LATC|(0x10>>time))&(0xE3+(0x10>>time));
+            if (time == 0)
+                {
+                LATAbits.LATA2 = 0;
+                LATCbits.LATC0 = 0;
+                LATCbits.LATC1 = 1;
+                }
+            if (time == 1)
+                {
+                LATAbits.LATA2 = 0;
+                LATCbits.LATC0 = 1;
+                LATCbits.LATC1 = 0;
+                }
+            if (time == 2)
+                {
+                LATAbits.LATA2 = 1;
+                LATCbits.LATC0 = 0;
+                LATCbits.LATC1 = 0;
+                }
             }
         
         if(EEPROM_Buffer[2])                //tail light
             {
             if(EEPROM_Buffer[4])
                 {
-                LATCbits.LATC5 = flashtaillight;
+                LATCbits.LATC2 = flashtaillight;
+                LATCbits.LATC3 = 1;
                 }
             else
                 {
-                LATCbits.LATC5 = 1;
+                LATCbits.LATC2 = 0;
+                LATCbits.LATC3 = 1;
                 }
             }
         
         if(EEPROM_Buffer[3])                //laser
             {
-            LATAbits.LATA4 = 1;
+            LATAbits.LATA5 = 1;
             }
         
         
         // off
         if(!EEPROM_Buffer[0])                //left
             {
-            LATA = LATA & 0xF8;
+            LATAbits.LATA4 = 0;
+            LATCbits.LATC5 = 0;
+            LATCbits.LATC4 = 0;
             }
         
         if(!EEPROM_Buffer[1])                //right
             {
-            LATC = LATC & 0xE3;
+            LATAbits.LATA2 = 0;
+            LATCbits.LATC0 = 0;
+            LATCbits.LATC1 = 0;
             }
         
         if(!EEPROM_Buffer[2])                //tail light
             {
-            LATCbits.LATC5 = 0;
+            LATCbits.LATC3 = 0;
             }
         
         if(!EEPROM_Buffer[3])                //laser
             {
-            LATAbits.LATA4 = 0;
+            LATAbits.LATA5 = 0;
             }
         
 

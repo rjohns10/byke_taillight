@@ -7321,17 +7321,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c1.c: 56: SLAVE_DATA_ADDRESS,
 [; ;i2c1.c: 57: } SLAVE_WRITE_DATA_TYPE;
 "63 mcc_generated_files/i2c1.c
-[v _EEPROM_Buffer `Vuc ~T0 @X0 -> 5 `i e ]
+[v _EEPROM_Buffer `Vuc ~T0 @X0 -> 7 `i e ]
 [i _EEPROM_Buffer
 :U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 -> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ]
-[; ;i2c1.c: 63: volatile uint8_t EEPROM_Buffer[5] = {1,1,1,1,1};
+[; ;i2c1.c: 63: volatile uint8_t EEPROM_Buffer[7] = {0, 0, 1, 0, 0, 0, 0};
 "64
 [v _I2C1_slaveWriteData `Vuc ~T0 @X0 1 e ]
 [i _I2C1_slaveWriteData

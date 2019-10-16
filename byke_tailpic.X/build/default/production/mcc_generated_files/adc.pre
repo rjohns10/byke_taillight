@@ -1,104 +1,5 @@
 
-# 1 "mcc_generated_files/i2c1.c"
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
-typedef unsigned char bool;
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\__size_t.h"
-typedef unsigned size_t;
-
-# 6 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stddef.h"
-typedef int ptrdiff_t;
+# 1 "mcc_generated_files/adc.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -9605,154 +9506,211 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 81 "mcc_generated_files/i2c1.h"
-typedef enum
-{
-I2C1_SLAVE_WRITE_REQUEST,
-I2C1_SLAVE_READ_REQUEST,
-I2C1_SLAVE_WRITE_COMPLETED,
-I2C1_SLAVE_READ_COMPLETED,
-} I2C1_SLAVE_DRIVER_STATUS;
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
+typedef signed char int8_t;
 
-# 116
-void I2C1_Initialize(void);
+# 20
+typedef signed int int16_t;
 
-# 136
-void I2C1_ISR ( void );
+# 28
+typedef signed short long int int24_t;
 
-# 143
-extern volatile uint8_t I2C1_slaveWriteData;
-extern volatile uint8_t EEPROM_Buffer[];
+# 36
+typedef signed long int int32_t;
 
-# 53 "mcc_generated_files/i2c1.c"
-typedef enum
-{
-SLAVE_NORMAL_DATA,
-SLAVE_DATA_ADDRESS,
-} SLAVE_WRITE_DATA_TYPE;
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
 
 # 63
-volatile uint8_t EEPROM_Buffer[7] = {0, 0, 1, 0, 0, 0, 0};
-volatile uint8_t I2C1_slaveWriteData = 0x55;
+typedef unsigned long int uint32_t;
 
-# 69
-void I2C1_StatusCallback(I2C1_SLAVE_DRIVER_STATUS i2c_bus_state);
+# 71
+typedef signed char int_least8_t;
 
-# 82
-void I2C1_Initialize(void)
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+typedef unsigned char bool;
+
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 77
+typedef struct
+{
+adc_result_t adcResult1;
+adc_result_t adcResult2;
+} adc_sync_double_result_t;
+
+# 95
+typedef enum
+{
+channel_AVSS = 0x3B,
+channel_Temp = 0x3C,
+channel_DAC1 = 0x3D,
+channel_FVR_BUF1 = 0x3E,
+channel_FVR_BUF2 = 0x3F
+} adc_channel_t;
+
+# 137
+void ADC_Initialize(void);
+
+# 167
+void ADC_SelectChannel(adc_channel_t channel);
+
+# 194
+void ADC_StartConversion();
+
+# 226
+bool ADC_IsConversionDone();
+
+# 259
+adc_result_t ADC_GetConversionResult(void);
+
+# 289
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 317
+void ADC_TemperatureAcquisitionDelay(void);
+
+# 65 "mcc_generated_files/adc.c"
+void ADC_Initialize(void)
 {
 
 
-SSP1STAT = 0x40;
 
-SSP1CON1 = 0x26;
-
-SSP1CON2 = 0x00;
-
-SSP1CON3 = 0x00;
-
-SSP1MSK = (0x7F << 1);
-
-SSP1ADD = (0x55 << 1);
+ADCON0 = 0x01;
 
 
-PIR3bits.SSP1IF = 0;
+ADCON1 = 0xD0;
 
-PIE3bits.SSP1IE = 1;
+
+ADRESL = 0x00;
+
+
+ADRESH = 0x00;
 
 }
 
-void I2C1_ISR ( void )
-{
-uint8_t i2c_data = 0x55;
-
-# 113
-PIR3bits.SSP1IF = 0;
-i2c_data = SSP1BUF;
-if(1 == SSP1STATbits.R_nW)
-{
-if((1 == SSP1STATbits.D_nA) && (1 == SSP1CON2bits.ACKSTAT))
+void ADC_SelectChannel(adc_channel_t channel)
 {
 
-I2C1_StatusCallback(I2C1_SLAVE_READ_COMPLETED);
-}
-else
-{
+ADCON0bits.CHS = channel;
 
-I2C1_StatusCallback(I2C1_SLAVE_READ_REQUEST);
-}
-}
-else if(0 == SSP1STATbits.D_nA)
-{
-
-
-
-I2C1_StatusCallback(I2C1_SLAVE_WRITE_REQUEST);
-}
-else
-{
-I2C1_slaveWriteData = i2c_data;
-
-
-I2C1_StatusCallback(I2C1_SLAVE_WRITE_COMPLETED);
+ADCON0bits.ADON = 1;
 }
 
-SSP1CON1bits.CKP = 1;
-
-}
-
-# 169
-void I2C1_StatusCallback(I2C1_SLAVE_DRIVER_STATUS i2c_bus_state)
+void ADC_StartConversion()
 {
 
-static uint8_t eepromAddress = 0;
-static uint8_t slaveWriteType = SLAVE_NORMAL_DATA;
-
-
-switch (i2c_bus_state)
-{
-case I2C1_SLAVE_WRITE_REQUEST:
-
-slaveWriteType = SLAVE_DATA_ADDRESS;
-break;
-
-
-case I2C1_SLAVE_WRITE_COMPLETED:
-
-switch(slaveWriteType)
-{
-case SLAVE_DATA_ADDRESS:
-eepromAddress = I2C1_slaveWriteData;
-break;
-
-
-case SLAVE_NORMAL_DATA:
-default:
-
-EEPROM_Buffer[eepromAddress++] = I2C1_slaveWriteData;
-if(sizeof(EEPROM_Buffer) <= eepromAddress)
-{
-eepromAddress = 0;
-}
-break;
-
+ADCON0bits.GOnDONE = 1;
 }
 
-slaveWriteType = SLAVE_NORMAL_DATA;
-break;
 
-case I2C1_SLAVE_READ_REQUEST:
-SSP1BUF = EEPROM_Buffer[eepromAddress++];
-if(sizeof(EEPROM_Buffer) <= eepromAddress)
+bool ADC_IsConversionDone()
 {
-eepromAddress = 0;
-}
-break;
 
-case I2C1_SLAVE_READ_COMPLETED:
-default:;
-
+return ((bool)(!ADCON0bits.GOnDONE));
 }
 
+adc_result_t ADC_GetConversionResult(void)
+{
+
+return ((adc_result_t)((ADRESH << 8) + ADRESL));
+}
+
+adc_result_t ADC_GetConversion(adc_channel_t channel)
+{
+
+ADCON0bits.CHS = channel;
+
+
+ADCON0bits.ADON = 1;
+
+
+_delay((unsigned long)((5)*(8000000/4000000.0)));
+
+
+ADCON0bits.GOnDONE = 1;
+
+
+while (ADCON0bits.GOnDONE)
+{
+}
+
+
+return ((adc_result_t)((ADRESH << 8) + ADRESL));
+}
+
+void ADC_TemperatureAcquisitionDelay(void)
+{
+_delay((unsigned long)((200)*(8000000/4000000.0)));
 }
 

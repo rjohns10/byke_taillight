@@ -9669,6 +9669,47 @@ extern void (*TMR1_InterruptHandler)(void);
 # 423
 void TMR1_DefaultInterruptHandler(void);
 
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 77
+typedef struct
+{
+adc_result_t adcResult1;
+adc_result_t adcResult2;
+} adc_sync_double_result_t;
+
+# 95
+typedef enum
+{
+channel_AVSS = 0x3B,
+channel_Temp = 0x3C,
+channel_DAC1 = 0x3D,
+channel_FVR_BUF1 = 0x3E,
+channel_FVR_BUF2 = 0x3F
+} adc_channel_t;
+
+# 137
+void ADC_Initialize(void);
+
+# 167
+void ADC_SelectChannel(adc_channel_t channel);
+
+# 194
+void ADC_StartConversion();
+
+# 226
+bool ADC_IsConversionDone();
+
+# 259
+adc_result_t ADC_GetConversionResult(void);
+
+# 289
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 317
+void ADC_TemperatureAcquisitionDelay(void);
+
 # 63 "mcc_generated_files/tmr0.h"
 extern volatile uint8_t time;
 
@@ -9702,13 +9743,13 @@ extern void (*TMR0_InterruptHandler)(void);
 # 346
 void TMR0_DefaultInterruptHandler(void);
 
-# 72 "mcc_generated_files/mcc.h"
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 85
+# 86
 void OSCILLATOR_Initialize(void);
 
-# 98
+# 99
 void PMD_Initialize(void);
 
 # 49 "main.c"
@@ -9725,59 +9766,106 @@ SYSTEM_Initialize();
 
 # 69
 TMR0_StartTimer();
-T1CONbits.TMR1ON = 1;
+TMR1_StartTimer();
+
+uint16_t picTemperature = 0;
 
 while (1)
 {
 
+picTemperature = ADC_GetConversion(channel_Temp);
+
+EEPROM_Buffer[6] = picTemperature/10;
+
+
 if(EEPROM_Buffer[0])
 {
-LATA = (LATA|(0x01<<time))&(0xF8+0x01<<(time));
+if (time == 0)
+{
+LATAbits.LATA4 = 0;
+LATCbits.LATC5 = 0;
+LATCbits.LATC4 = 1;
+}
+if (time == 1)
+{
+LATAbits.LATA4 = 0;
+LATCbits.LATC5 = 1;
+LATCbits.LATC4 = 0;
+}
+if (time == 2)
+{
+LATAbits.LATA4 = 1;
+LATCbits.LATC5 = 0;
+LATCbits.LATC4 = 0;
+}
 }
 
 
 if(EEPROM_Buffer[1])
 {
-LATC = (LATC|(0x10>>time))&(0xE3+(0x10>>time));
+if (time == 0)
+{
+LATAbits.LATA2 = 0;
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 1;
+}
+if (time == 1)
+{
+LATAbits.LATA2 = 0;
+LATCbits.LATC0 = 1;
+LATCbits.LATC1 = 0;
+}
+if (time == 2)
+{
+LATAbits.LATA2 = 1;
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
+}
 }
 
 if(EEPROM_Buffer[2])
 {
 if(EEPROM_Buffer[4])
 {
-LATCbits.LATC5 = flashtaillight;
+LATCbits.LATC2 = flashtaillight;
+LATCbits.LATC3 = 1;
 }
 else
 {
-LATCbits.LATC5 = 1;
+LATCbits.LATC2 = 0;
+LATCbits.LATC3 = 1;
 }
 }
 
 if(EEPROM_Buffer[3])
 {
-LATAbits.LATA4 = 1;
+LATAbits.LATA5 = 1;
 }
 
 
 
 if(!EEPROM_Buffer[0])
 {
-LATA = LATA & 0xF8;
+LATAbits.LATA4 = 0;
+LATCbits.LATC5 = 0;
+LATCbits.LATC4 = 0;
 }
 
 if(!EEPROM_Buffer[1])
 {
-LATC = LATC & 0xE3;
+LATAbits.LATA2 = 0;
+LATCbits.LATC0 = 0;
+LATCbits.LATC1 = 0;
 }
 
 if(!EEPROM_Buffer[2])
 {
-LATCbits.LATC5 = 0;
+LATCbits.LATC3 = 0;
 }
 
 if(!EEPROM_Buffer[3])
 {
-LATAbits.LATA4 = 0;
+LATAbits.LATA5 = 0;
 }
 
 

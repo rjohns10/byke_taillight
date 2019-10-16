@@ -15,12 +15,34 @@ I2C1_SLAVE_READ_COMPLETED 3
 SLAVE_NORMAL_DATA 0
 SLAVE_DATA_ADDRESS 1
 ]
+"77 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\main.c
+[e E7759 . `uc
+channel_AVSS 59
+channel_Temp 60
+channel_DAC1 61
+channel_FVR_BUF1 62
+channel_FVR_BUF2 63
+]
+"84 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/adc.c
+[e E7713 . `uc
+channel_AVSS 59
+channel_Temp 60
+channel_DAC1 61
+channel_FVR_BUF1 62
+channel_FVR_BUF2 63
+]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "49 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"65 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"110
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
 "82 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
 "105
@@ -31,9 +53,9 @@ SLAVE_DATA_ADDRESS 1
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 "50 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"60
+"61
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"76
+"77
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 "57 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -47,31 +69,33 @@ SLAVE_DATA_ADDRESS 1
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 "140
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
-"65 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
+"64 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
-"128
+"99
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+"127
 [v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
-"165
+"164
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
-"179
+"178
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
-"183
+"182
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
-[s S132 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S154 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "424 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
-[u S137 . 1 `S132 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES137  1 e 1 @11 ]
+[u S159 . 1 `S154 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES159  1 e 1 @11 ]
 "544
 [v _TRISA TRISA `VEuc  1 e 1 @18 ]
 "589
 [v _TRISC TRISC `VEuc  1 e 1 @20 ]
 "639
 [v _LATA LATA `VEuc  1 e 1 @24 ]
-[s S755 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S864 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -79,11 +103,11 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 LATA5 1 0 :1:5 
 ]
 "654
-[u S762 . 1 `S755 1 . 1 0 ]
-[v _LATAbits LATAbits `VES762  1 e 1 @24 ]
+[u S871 . 1 `S864 1 . 1 0 ]
+[v _LATAbits LATAbits `VES871  1 e 1 @24 ]
 "684
 [v _LATC LATC `VEuc  1 e 1 @26 ]
-[s S737 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S881 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -91,8 +115,31 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 LATC5 1 0 :1:5 
 ]
 "699
-[u S744 . 1 `S737 1 . 1 0 ]
-[v _LATCbits LATCbits `VES744  1 e 1 @26 ]
+[u S888 . 1 `S881 1 . 1 0 ]
+[v _LATCbits LATCbits `VES888  1 e 1 @26 ]
+"741
+[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
+"811
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"881
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+[s S930 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GOnDONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+`uc 1 CHS5 1 0 :1:7 
+]
+"902
+[s S939 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CHS 1 0 :6:2 
+]
+[u S942 . 1 `S930 1 . 1 0 `S939 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES942  1 e 1 @157 ]
+"952
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
 "1915
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @396 ]
 "1935
@@ -101,7 +148,7 @@ SLAVE_DATA_ADDRESS 1
 [v _SSP1MSK SSP1MSK `VEuc  1 e 1 @398 ]
 "2125
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @399 ]
-[s S321 . 1 `uc 1 BF 1 0 :1:0 
+[s S325 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -111,33 +158,33 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 SMP 1 0 :1:7 
 ]
 "2234
-[s S330 . 1 `uc 1 . 1 0 :2:0 
+[s S334 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S335 . 1 `uc 1 . 1 0 :2:0 
+[s S339 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S340 . 1 `uc 1 . 1 0 :2:0 
+[s S344 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S345 . 1 `uc 1 . 1 0 :2:0 
+[s S349 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S350 . 1 `uc 1 . 1 0 :2:0 
+[s S354 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S356 . 1 `uc 1 BF1 1 0 :1:0 
+[s S360 . 1 `uc 1 BF1 1 0 :1:0 
 `uc 1 UA1 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -146,66 +193,66 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 CKE1 1 0 :1:6 
 `uc 1 SMP1 1 0 :1:7 
 ]
-[s S365 . 1 `uc 1 . 1 0 :2:0 
+[s S369 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START1 1 0 :1:3 
 `uc 1 STOP1 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S371 . 1 `uc 1 . 1 0 :2:0 
+[s S375 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW1 1 0 :1:2 
 `uc 1 I2C_START1 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA1 1 0 :1:5 
 ]
-[s S377 . 1 `uc 1 . 1 0 :2:0 
+[s S381 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ1 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS1 1 0 :1:5 
 ]
-[s S383 . 1 `uc 1 . 1 0 :2:0 
+[s S387 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A1 1 0 :1:5 
 ]
-[s S388 . 1 `uc 1 . 1 0 :2:0 
+[s S392 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA1 1 0 :1:5 
 ]
-[s S393 . 1 `uc 1 . 1 0 :2:0 
+[s S397 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT1 1 0 :1:5 
 ]
-[s S398 . 1 `uc 1 . 1 0 :2:0 
+[s S402 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S403 . 1 `uc 1 . 1 0 :2:0 
+[s S407 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE1 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS1 1 0 :1:5 
 ]
-[u S408 . 1 `S321 1 . 1 0 `S330 1 . 1 0 `S335 1 . 1 0 `S340 1 . 1 0 `S345 1 . 1 0 `S350 1 . 1 0 `S356 1 . 1 0 `S365 1 . 1 0 `S371 1 . 1 0 `S377 1 . 1 0 `S383 1 . 1 0 `S388 1 . 1 0 `S393 1 . 1 0 `S398 1 . 1 0 `S403 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES408  1 e 1 @399 ]
+[u S412 . 1 `S325 1 . 1 0 `S334 1 . 1 0 `S339 1 . 1 0 `S344 1 . 1 0 `S349 1 . 1 0 `S354 1 . 1 0 `S360 1 . 1 0 `S369 1 . 1 0 `S375 1 . 1 0 `S381 1 . 1 0 `S387 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 `S402 1 . 1 0 `S407 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES412  1 e 1 @399 ]
 "2489
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @400 ]
-[s S599 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S603 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "2519
-[s S605 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S609 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S610 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S614 . 1 `uc 1 SSPM01 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 `uc 1 SSPM21 1 0 :1:2 
 `uc 1 SSPM31 1 0 :1:3 
@@ -214,11 +261,11 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 SSPOV1 1 0 :1:6 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S619 . 1 `S599 1 . 1 0 `S605 1 . 1 0 `S610 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES619  1 e 1 @400 ]
+[u S623 . 1 `S603 1 . 1 0 `S609 1 . 1 0 `S614 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES623  1 e 1 @400 ]
 "2609
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @401 ]
-[s S512 . 1 `uc 1 SEN 1 0 :1:0 
+[s S516 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -228,17 +275,17 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 GCEN 1 0 :1:7 
 ]
 "2656
-[s S521 . 1 `uc 1 . 1 0 :1:0 
+[s S525 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S524 . 1 `uc 1 . 1 0 :1:0 
+[s S528 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S531 . 1 `uc 1 SEN1 1 0 :1:0 
+[s S535 . 1 `uc 1 SEN1 1 0 :1:0 
 `uc 1 ADMSK11 1 0 :1:1 
 `uc 1 ADMSK21 1 0 :1:2 
 `uc 1 ADMSK31 1 0 :1:3 
@@ -247,15 +294,15 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 ACKSTAT1 1 0 :1:6 
 `uc 1 GCEN1 1 0 :1:7 
 ]
-[s S540 . 1 `uc 1 . 1 0 :1:0 
+[s S544 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN1 1 0 :1:1 
 `uc 1 PEN1 1 0 :1:2 
 `uc 1 RCEN1 1 0 :1:3 
 `uc 1 ADMSK41 1 0 :1:4 
 `uc 1 ADMSK51 1 0 :1:5 
 ]
-[u S547 . 1 `S512 1 . 1 0 `S521 1 . 1 0 `S524 1 . 1 0 `S531 1 . 1 0 `S540 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES547  1 e 1 @401 ]
+[u S551 . 1 `S516 1 . 1 0 `S525 1 . 1 0 `S528 1 . 1 0 `S535 1 . 1 0 `S544 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES551  1 e 1 @401 ]
 "2796
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @402 ]
 "2865
@@ -264,32 +311,32 @@ SLAVE_DATA_ADDRESS 1
 [v _TMR1H TMR1H `VEuc  1 e 1 @525 ]
 "3155
 [v _T1CON T1CON `VEuc  1 e 1 @526 ]
-[s S687 . 1 `uc 1 ON 1 0 :1:0 
+[s S710 . 1 `uc 1 ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 nSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 CKPS 1 0 :2:4 
 ]
 "3186
-[s S693 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S716 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S700 . 1 `uc 1 . 1 0 :4:0 
+[s S723 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKPS0 1 0 :1:4 
 `uc 1 CKPS1 1 0 :1:5 
 ]
-[s S704 . 1 `uc 1 . 1 0 :1:0 
+[s S727 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD161 1 0 :1:1 
 ]
-[u S707 . 1 `S687 1 . 1 0 `S693 1 . 1 0 `S700 1 . 1 0 `S704 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES707  1 e 1 @526 ]
+[u S730 . 1 `S710 1 . 1 0 `S716 1 . 1 0 `S723 1 . 1 0 `S727 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES730  1 e 1 @526 ]
 "3251
 [v _T1GCON T1GCON `VEuc  1 e 1 @527 ]
-[s S852 . 1 `uc 1 . 1 0 :2:0 
+[s S756 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GVAL 1 0 :1:2 
 `uc 1 GGO_nDONE 1 0 :1:3 
 `uc 1 GSPM 1 0 :1:4 
@@ -298,7 +345,7 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 GE 1 0 :1:7 
 ]
 "3285
-[s S860 . 1 `uc 1 . 1 0 :2:0 
+[s S764 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
 `uc 1 T1GSPM 1 0 :1:4 
@@ -306,11 +353,11 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 T1GPOL 1 0 :1:6 
 `uc 1 T1GE 1 0 :1:7 
 ]
-[s S868 . 1 `uc 1 . 1 0 :3:0 
+[s S772 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO 1 0 :1:3 
 ]
-[u S871 . 1 `S852 1 . 1 0 `S860 1 . 1 0 `S868 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES871  1 e 1 @527 ]
+[u S775 . 1 `S756 1 . 1 0 `S764 1 . 1 0 `S772 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES775  1 e 1 @527 ]
 "3447
 [v _T1GATE T1GATE `VEuc  1 e 1 @528 ]
 "3613
@@ -345,7 +392,7 @@ SLAVE_DATA_ADDRESS 1
 "7769
 [u S28 . 1 `S23 1 . 1 0 ]
 [v _PIR0bits PIR0bits `VES28  1 e 1 @1804 ]
-[s S164 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[s S186 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TX1IF 1 0 :1:4 
@@ -354,14 +401,14 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 RC2IF 1 0 :1:7 
 ]
 "7877
-[u S172 . 1 `S164 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES172  1 e 1 @1807 ]
-[s S196 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S194 . 1 `S186 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES194  1 e 1 @1807 ]
+[s S141 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 ]
 "7923
-[u S199 . 1 `S196 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES199  1 e 1 @1808 ]
+[u S144 . 1 `S141 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES144  1 e 1 @1808 ]
 [s S36 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
@@ -370,7 +417,7 @@ SLAVE_DATA_ADDRESS 1
 "8064
 [u S41 . 1 `S36 1 . 1 0 ]
 [v _PIE0bits PIE0bits `VES41  1 e 1 @1814 ]
-[s S145 . 1 `uc 1 SSP1IE 1 0 :1:0 
+[s S167 . 1 `uc 1 SSP1IE 1 0 :1:0 
 `uc 1 BCL1IE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TX1IE 1 0 :1:4 
@@ -379,14 +426,14 @@ SLAVE_DATA_ADDRESS 1
 `uc 1 RC2IE 1 0 :1:7 
 ]
 "8166
-[u S153 . 1 `S145 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES153  1 e 1 @1817 ]
-[s S187 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S175 . 1 `S167 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES175  1 e 1 @1817 ]
+[s S132 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 ]
 "8212
-[u S190 . 1 `S187 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES190  1 e 1 @1818 ]
+[u S135 . 1 `S132 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES135  1 e 1 @1818 ]
 "8340
 [v _PMD0 PMD0 `VEuc  1 e 1 @1942 ]
 "8385
@@ -415,10 +462,10 @@ SLAVE_DATA_ADDRESS 1
 [v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @7877 ]
 "16645
 [v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @7878 ]
-"17257
-[v _RC0PPS RC0PPS `VEuc  1 e 1 @7968 ]
-"17301
-[v _RC1PPS RC1PPS `VEuc  1 e 1 @7969 ]
+"16993
+[v _RA0PPS RA0PPS `VEuc  1 e 1 @7952 ]
+"17037
+[v _RA1PPS RA1PPS `VEuc  1 e 1 @7953 ]
 "17521
 [v _ANSELA ANSELA `VEuc  1 e 1 @7992 ]
 "17566
@@ -436,7 +483,7 @@ SLAVE_DATA_ADDRESS 1
 "18056
 [v _SLRCONC SLRCONC `VEuc  1 e 1 @8017 ]
 "63 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/i2c1.c
-[v _EEPROM_Buffer EEPROM_Buffer `VE[5]uc  1 e 5 0 ]
+[v _EEPROM_Buffer EEPROM_Buffer `VE[7]uc  1 e 7 0 ]
 "64
 [v _I2C1_slaveWriteData I2C1_slaveWriteData `VEuc  1 e 1 0 ]
 "59 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr0.c
@@ -452,7 +499,26 @@ SLAVE_DATA_ADDRESS 1
 "49 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"129
+"72
+[v main@picTemperature picTemperature `ui  1 a 2 9 ]
+"176
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
+"99 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+{
+"103
 } 0
 "89 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr0.c
 [v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 1 0 ]
@@ -462,18 +528,18 @@ SLAVE_DATA_ADDRESS 1
 "50 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"58
+"59
 } 0
-"65 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
+"64 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 {
-"98
+"97
 } 0
-"179
+"178
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
-"181
+"180
 } 0
 "63 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
@@ -486,41 +552,60 @@ SLAVE_DATA_ADDRESS 1
 [v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
 "138
 } 0
-"76 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
+"77 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
 {
-"90
+"91
 } 0
 "57 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "106
 } 0
-"60 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
+"61 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"74
+"75
 } 0
 "82 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
 {
 "103
 } 0
+"65 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"81
+} 0
+"110
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+{
+[v ADC_GetConversion@channel channel `E7713  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E7713  1 a 1 wreg ]
+"113
+[v ADC_GetConversion@channel channel `E7713  1 a 1 3 ]
+"131
+} 0
 "52 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"78
+"82
 } 0
-"165 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
+"164 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
 {
-"176
+"175
 } 0
-"128
+"127
 [v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
 {
 [v TMR1_WriteTimer@timerVal timerVal `ui  1 p 2 0 ]
-"148
+"147
+} 0
+"182
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"185
 } 0
 "123 C:\Users\tdroq\Desktop\Capstone\byke_tailpic\byke_tailpic.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]

@@ -1,12 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"98 mcc_generated_files/mcc.h
+"99 mcc_generated_files/mcc.h
 [v _PMD_Initialize `(v ~T0 @X0 0 ef ]
 "292 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"85 mcc_generated_files/mcc.h
+"86 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
 "116 mcc_generated_files/i2c1.h
 [v _I2C1_Initialize `(v ~T0 @X0 0 ef ]
+"137 mcc_generated_files/adc.h
+[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "102 mcc_generated_files/tmr1.h
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
 "100 mcc_generated_files/tmr0.h
@@ -7244,6 +7246,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 387: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr1.h: 405: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 423: void TMR1_DefaultInterruptHandler(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: channel_AVSS = 0x3B,
+[; ;adc.h: 98: channel_Temp = 0x3C,
+[; ;adc.h: 99: channel_DAC1 = 0x3D,
+[; ;adc.h: 100: channel_FVR_BUF1 = 0x3E,
+[; ;adc.h: 101: channel_FVR_BUF2 = 0x3F
+[; ;adc.h: 102: } adc_channel_t;
+[; ;adc.h: 137: void ADC_Initialize(void);
+[; ;adc.h: 167: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 194: void ADC_StartConversion();
+[; ;adc.h: 226: bool ADC_IsConversionDone();
+[; ;adc.h: 259: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 317: void ADC_TemperatureAcquisitionDelay(void);
 [; ;tmr0.h: 63: extern volatile uint8_t time;
 [; ;tmr0.h: 100: void TMR0_Initialize(void);
 [; ;tmr0.h: 129: void TMR0_StartTimer(void);
@@ -7255,9 +7278,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 310: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr0.h: 328: extern void (*TMR0_InterruptHandler)(void);
 [; ;tmr0.h: 346: void TMR0_DefaultInterruptHandler(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void PMD_Initialize(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 99: void PMD_Initialize(void);
 "50 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 "51
@@ -7278,73 +7301,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 55: I2C1_Initialize();
 "55
 [e ( _I2C1_Initialize ..  ]
-[; ;mcc.c: 56: TMR1_Initialize();
+[; ;mcc.c: 56: ADC_Initialize();
 "56
-[e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 57: TMR0_Initialize();
+[e ( _ADC_Initialize ..  ]
+[; ;mcc.c: 57: TMR1_Initialize();
 "57
-[e ( _TMR0_Initialize ..  ]
-[; ;mcc.c: 58: }
+[e ( _TMR1_Initialize ..  ]
+[; ;mcc.c: 58: TMR0_Initialize();
 "58
-[e :UE 871 ]
-}
-"60
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"61
-{
-[; ;mcc.c: 60: void OSCILLATOR_Initialize(void)
-[; ;mcc.c: 61: {
-[e :U _OSCILLATOR_Initialize ]
-[f ]
-[; ;mcc.c: 63: OSCCON1 = 0x62;
-"63
-[e = _OSCCON1 -> -> 98 `i `uc ]
-[; ;mcc.c: 65: OSCCON3 = 0x00;
-"65
-[e = _OSCCON3 -> -> 0 `i `uc ]
-[; ;mcc.c: 67: OSCEN = 0x00;
-"67
-[e = _OSCEN -> -> 0 `i `uc ]
-[; ;mcc.c: 69: OSCFRQ = 0x06;
-"69
-[e = _OSCFRQ -> -> 6 `i `uc ]
-[; ;mcc.c: 71: OSCSTAT = 0x00;
-"71
-[e = _OSCSTAT -> -> 0 `i `uc ]
-[; ;mcc.c: 73: OSCTUNE = 0x00;
-"73
-[e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 74: }
-"74
+[e ( _TMR0_Initialize ..  ]
+[; ;mcc.c: 59: }
+"59
 [e :UE 872 ]
 }
-"76
-[v _PMD_Initialize `(v ~T0 @X0 1 ef ]
-"77
+"61
+[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"62
 {
-[; ;mcc.c: 76: void PMD_Initialize(void)
-[; ;mcc.c: 77: {
+[; ;mcc.c: 61: void OSCILLATOR_Initialize(void)
+[; ;mcc.c: 62: {
+[e :U _OSCILLATOR_Initialize ]
+[f ]
+[; ;mcc.c: 64: OSCCON1 = 0x62;
+"64
+[e = _OSCCON1 -> -> 98 `i `uc ]
+[; ;mcc.c: 66: OSCCON3 = 0x00;
+"66
+[e = _OSCCON3 -> -> 0 `i `uc ]
+[; ;mcc.c: 68: OSCEN = 0x00;
+"68
+[e = _OSCEN -> -> 0 `i `uc ]
+[; ;mcc.c: 70: OSCFRQ = 0x06;
+"70
+[e = _OSCFRQ -> -> 6 `i `uc ]
+[; ;mcc.c: 72: OSCSTAT = 0x00;
+"72
+[e = _OSCSTAT -> -> 0 `i `uc ]
+[; ;mcc.c: 74: OSCTUNE = 0x00;
+"74
+[e = _OSCTUNE -> -> 0 `i `uc ]
+[; ;mcc.c: 75: }
+"75
+[e :UE 873 ]
+}
+"77
+[v _PMD_Initialize `(v ~T0 @X0 1 ef ]
+"78
+{
+[; ;mcc.c: 77: void PMD_Initialize(void)
+[; ;mcc.c: 78: {
 [e :U _PMD_Initialize ]
 [f ]
-[; ;mcc.c: 79: PMD0 = 0x00;
-"79
+[; ;mcc.c: 80: PMD0 = 0x00;
+"80
 [e = _PMD0 -> -> 0 `i `uc ]
-[; ;mcc.c: 81: PMD1 = 0x00;
-"81
+[; ;mcc.c: 82: PMD1 = 0x00;
+"82
 [e = _PMD1 -> -> 0 `i `uc ]
-[; ;mcc.c: 83: PMD2 = 0x00;
-"83
+[; ;mcc.c: 84: PMD2 = 0x00;
+"84
 [e = _PMD2 -> -> 0 `i `uc ]
-[; ;mcc.c: 85: PMD3 = 0x00;
-"85
+[; ;mcc.c: 86: PMD3 = 0x00;
+"86
 [e = _PMD3 -> -> 0 `i `uc ]
-[; ;mcc.c: 87: PMD4 = 0x00;
-"87
+[; ;mcc.c: 88: PMD4 = 0x00;
+"88
 [e = _PMD4 -> -> 0 `i `uc ]
-[; ;mcc.c: 89: PMD5 = 0x00;
-"89
-[e = _PMD5 -> -> 0 `i `uc ]
-[; ;mcc.c: 90: }
+[; ;mcc.c: 90: PMD5 = 0x00;
 "90
-[e :UE 873 ]
+[e = _PMD5 -> -> 0 `i `uc ]
+[; ;mcc.c: 91: }
+"91
+[e :UE 874 ]
 }

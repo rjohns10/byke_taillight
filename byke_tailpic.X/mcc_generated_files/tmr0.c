@@ -126,7 +126,7 @@ void TMR0_ISR(void)
     PIR0bits.TMR0IF = 0;
     
     time++;
-    
+   
     if(time >= 3) time = 0;
 
     // add your TMR0 interrupt custom code

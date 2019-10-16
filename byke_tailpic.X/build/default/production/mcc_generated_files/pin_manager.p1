@@ -23,12 +23,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SLRCONA `Vuc ~T0 @X0 0 e@7995 ]
 "18056
 [v _SLRCONC `Vuc ~T0 @X0 0 e@8017 ]
-"17257
-[v _RC0PPS `Vuc ~T0 @X0 0 e@7968 ]
 "16587
 [v _SSP1CLKPPS `Vuc ~T0 @X0 0 e@7877 ]
-"17301
-[v _RC1PPS `Vuc ~T0 @X0 0 e@7969 ]
+"17037
+[v _RA1PPS `Vuc ~T0 @X0 0 e@7953 ]
+"16993
+[v _RA0PPS `Vuc ~T0 @X0 0 e@7952 ]
 "16645
 [v _SSP1DATPPS `Vuc ~T0 @X0 0 e@7878 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -7200,18 +7200,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 63: LATC = 0x00;
 "63
 [e = _LATC -> -> 0 `i `uc ]
-[; ;pin_manager.c: 68: TRISA = 0x08;
+[; ;pin_manager.c: 68: TRISA = 0x0B;
 "68
-[e = _TRISA -> -> 8 `i `uc ]
-[; ;pin_manager.c: 69: TRISC = 0x03;
+[e = _TRISA -> -> 11 `i `uc ]
+[; ;pin_manager.c: 69: TRISC = 0x00;
 "69
-[e = _TRISC -> -> 3 `i `uc ]
-[; ;pin_manager.c: 74: ANSELC = 0x3C;
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;pin_manager.c: 74: ANSELC = 0x3F;
 "74
-[e = _ANSELC -> -> 60 `i `uc ]
-[; ;pin_manager.c: 75: ANSELA = 0x37;
+[e = _ANSELC -> -> 63 `i `uc ]
+[; ;pin_manager.c: 75: ANSELA = 0x34;
 "75
-[e = _ANSELA -> -> 55 `i `uc ]
+[e = _ANSELA -> -> 52 `i `uc ]
 [; ;pin_manager.c: 80: WPUA = 0x00;
 "80
 [e = _WPUA -> -> 0 `i `uc ]
@@ -7230,18 +7230,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 93: SLRCONC = 0x3F;
 "93
 [e = _SLRCONC -> -> 63 `i `uc ]
-[; ;pin_manager.c: 102: RC0PPS = 0x15;
+[; ;pin_manager.c: 102: SSP1CLKPPS = 0x00;
 "102
-[e = _RC0PPS -> -> 21 `i `uc ]
-[; ;pin_manager.c: 103: SSP1CLKPPS = 0x10;
+[e = _SSP1CLKPPS -> -> 0 `i `uc ]
+[; ;pin_manager.c: 103: RA1PPS = 0x16;
 "103
-[e = _SSP1CLKPPS -> -> 16 `i `uc ]
-[; ;pin_manager.c: 104: RC1PPS = 0x16;
+[e = _RA1PPS -> -> 22 `i `uc ]
+[; ;pin_manager.c: 104: RA0PPS = 0x15;
 "104
-[e = _RC1PPS -> -> 22 `i `uc ]
-[; ;pin_manager.c: 105: SSP1DATPPS = 0x11;
+[e = _RA0PPS -> -> 21 `i `uc ]
+[; ;pin_manager.c: 105: SSP1DATPPS = 0x01;
 "105
-[e = _SSP1DATPPS -> -> 17 `i `uc ]
+[e = _SSP1DATPPS -> -> 1 `i `uc ]
 [; ;pin_manager.c: 106: }
 "106
 [e :UE 871 ]

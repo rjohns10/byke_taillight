@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"72 mcc_generated_files/mcc.h
+"73 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "417 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
 [s S26 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -12,31 +12,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 "129 mcc_generated_files/tmr0.h
 [v _TMR0_StartTimer `(v ~T0 @X0 0 ef ]
-"3161 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
-[s S149 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
-[n S149 . ON RD16 nSYNC . CKPS ]
-"3168
-[s S150 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S150 . TMR1ON T1RD16 nT1SYNC . T1CKPS0 T1CKPS1 ]
-"3176
-[s S151 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S151 . . CKPS0 CKPS1 ]
-"3181
-[s S152 :1 `uc 1 :1 `uc 1 ]
-[n S152 . . RD161 ]
-"3160
-[u S148 `S149 1 `S150 1 `S151 1 `S152 1 ]
-[n S148 . . . . . ]
-"3186
-[v _T1CONbits `VS148 ~T0 @X0 0 e@526 ]
+"131 mcc_generated_files/tmr1.h
+[v _TMR1_StartTimer `(v ~T0 @X0 0 ef ]
+"77 main.c
+[c E7759 59 60 61 62 63 .. ]
+[n E7759 . channel_AVSS channel_Temp channel_DAC1 channel_FVR_BUF1 channel_FVR_BUF2  ]
+"289 mcc_generated_files/adc.h
+[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E7759 ]
 "144 mcc_generated_files/i2c1.h
 [v _EEPROM_Buffer `Vuc ~T0 @X0 -> 0 `x e ]
-"639 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
-[v _LATA `Vuc ~T0 @X0 0 e@24 ]
 "63 mcc_generated_files/tmr0.h
 [v _time `Vuc ~T0 @X0 0 e ]
-"684 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
-[v _LATC `Vuc ~T0 @X0 0 e@26 ]
+"645 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"644
+[u S35 `S36 1 ]
+[n S35 . . ]
+"654
+[v _LATAbits `VS35 ~T0 @X0 0 e@24 ]
 "690
 [s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S38 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 ]
@@ -47,14 +41,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATCbits `VS37 ~T0 @X0 0 e@26 ]
 "68 mcc_generated_files/tmr1.h
 [v _flashtaillight `Vuc ~T0 @X0 0 e ]
-"645 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f15324.h
-[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"644
-[u S35 `S36 1 ]
-[n S35 . . ]
-"654
-[v _LATAbits `VS35 ~T0 @X0 0 e@24 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7264,6 +7250,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 387: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr1.h: 405: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 423: void TMR1_DefaultInterruptHandler(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 77: typedef struct
+[; ;adc.h: 78: {
+[; ;adc.h: 79: adc_result_t adcResult1;
+[; ;adc.h: 80: adc_result_t adcResult2;
+[; ;adc.h: 81: } adc_sync_double_result_t;
+[; ;adc.h: 95: typedef enum
+[; ;adc.h: 96: {
+[; ;adc.h: 97: channel_AVSS = 0x3B,
+[; ;adc.h: 98: channel_Temp = 0x3C,
+[; ;adc.h: 99: channel_DAC1 = 0x3D,
+[; ;adc.h: 100: channel_FVR_BUF1 = 0x3E,
+[; ;adc.h: 101: channel_FVR_BUF2 = 0x3F
+[; ;adc.h: 102: } adc_channel_t;
+[; ;adc.h: 137: void ADC_Initialize(void);
+[; ;adc.h: 167: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 194: void ADC_StartConversion();
+[; ;adc.h: 226: bool ADC_IsConversionDone();
+[; ;adc.h: 259: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 317: void ADC_TemperatureAcquisitionDelay(void);
 [; ;tmr0.h: 63: extern volatile uint8_t time;
 [; ;tmr0.h: 100: void TMR0_Initialize(void);
 [; ;tmr0.h: 129: void TMR0_StartTimer(void);
@@ -7275,9 +7282,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 310: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr0.h: 328: extern void (*TMR0_InterruptHandler)(void);
 [; ;tmr0.h: 346: void TMR0_DefaultInterruptHandler(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void PMD_Initialize(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 99: void PMD_Initialize(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "49 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -7299,155 +7306,291 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 69: TMR0_StartTimer();
 "69
 [e ( _TMR0_StartTimer ..  ]
-[; ;main.c: 70: T1CONbits.TMR1ON = 1;
+[; ;main.c: 70: TMR1_StartTimer();
 "70
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 72: while (1)
+[e ( _TMR1_StartTimer ..  ]
 "72
-[e :U 873 ]
-[; ;main.c: 73: {
-"73
-{
-[; ;main.c: 75: if(EEPROM_Buffer[0])
+[v _picTemperature `ui ~T0 @X0 1 a ]
+[; ;main.c: 72: uint16_t picTemperature = 0;
+[e = _picTemperature -> -> 0 `i `ui ]
+[; ;main.c: 74: while (1)
+"74
+[e :U 874 ]
+[; ;main.c: 75: {
 "75
-[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 875  ]
-[; ;main.c: 76: {
-"76
 {
-[; ;main.c: 77: LATA = (LATA|(0x01<<time))&(0xF8+0x01<<(time));
+[; ;main.c: 77: picTemperature = ADC_GetConversion(channel_Temp);
 "77
-[e = _LATA -> & | -> _LATA `i << -> 1 `i _time << + -> 248 `i -> 1 `i _time `uc ]
-"78
-}
-[e :U 875 ]
-[; ;main.c: 78: }
-[; ;main.c: 81: if(EEPROM_Buffer[1])
-"81
-[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 876  ]
-[; ;main.c: 82: {
+[e = _picTemperature ( _ADC_GetConversion (1 . `E7759 1 ]
+[; ;main.c: 79: EEPROM_Buffer[6] = picTemperature/10;
+"79
+[e = *U + &U _EEPROM_Buffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux -> / _picTemperature -> -> 10 `i `ui `uc ]
+[; ;main.c: 82: if(EEPROM_Buffer[0])
 "82
-{
-[; ;main.c: 83: LATC = (LATC|(0x10>>time))&(0xE3+(0x10>>time));
+[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 876  ]
+[; ;main.c: 83: {
 "83
-[e = _LATC -> & | -> _LATC `i >> -> 16 `i _time + -> 227 `i >> -> 16 `i _time `uc ]
+{
+[; ;main.c: 84: if (time == 0)
 "84
-}
-[e :U 876 ]
-[; ;main.c: 84: }
-[; ;main.c: 86: if(EEPROM_Buffer[2])
+[e $ ! == -> _time `i -> 0 `i 877  ]
+[; ;main.c: 85: {
+"85
+{
+[; ;main.c: 86: LATAbits.LATA4 = 0;
 "86
-[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 877  ]
-[; ;main.c: 87: {
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 87: LATCbits.LATC5 = 0;
 "87
-{
-[; ;main.c: 88: if(EEPROM_Buffer[4])
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 88: LATCbits.LATC4 = 1;
 "88
-[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 878  ]
-[; ;main.c: 89: {
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
 "89
-{
-[; ;main.c: 90: LATCbits.LATC5 = flashtaillight;
-"90
-[e = . . _LATCbits 0 5 _flashtaillight ]
-"91
-}
-[; ;main.c: 91: }
-[e $U 879  ]
-"92
-[e :U 878 ]
-[; ;main.c: 92: else
-[; ;main.c: 93: {
-"93
-{
-[; ;main.c: 94: LATCbits.LATC5 = 1;
-"94
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"95
-}
-[e :U 879 ]
-"96
 }
 [e :U 877 ]
-[; ;main.c: 95: }
-[; ;main.c: 96: }
-[; ;main.c: 98: if(EEPROM_Buffer[3])
-"98
-[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 880  ]
-[; ;main.c: 99: {
-"99
+[; ;main.c: 89: }
+[; ;main.c: 90: if (time == 1)
+"90
+[e $ ! == -> _time `i -> 1 `i 878  ]
+[; ;main.c: 91: {
+"91
 {
-[; ;main.c: 100: LATAbits.LATA4 = 1;
-"100
+[; ;main.c: 92: LATAbits.LATA4 = 0;
+"92
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 93: LATCbits.LATC5 = 1;
+"93
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 94: LATCbits.LATC4 = 0;
+"94
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+"95
+}
+[e :U 878 ]
+[; ;main.c: 95: }
+[; ;main.c: 96: if (time == 2)
+"96
+[e $ ! == -> _time `i -> 2 `i 879  ]
+[; ;main.c: 97: {
+"97
+{
+[; ;main.c: 98: LATAbits.LATA4 = 1;
+"98
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 99: LATCbits.LATC5 = 0;
+"99
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 100: LATCbits.LATC4 = 0;
+"100
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
 "101
 }
-[e :U 880 ]
+[e :U 879 ]
+"102
+}
+[e :U 876 ]
 [; ;main.c: 101: }
-[; ;main.c: 105: if(!EEPROM_Buffer[0])
+[; ;main.c: 102: }
+[; ;main.c: 105: if(EEPROM_Buffer[1])
 "105
-[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 881  ]
+[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 880  ]
 [; ;main.c: 106: {
 "106
 {
-[; ;main.c: 107: LATA = LATA & 0xF8;
+[; ;main.c: 107: if (time == 0)
 "107
-[e = _LATA -> & -> _LATA `i -> 248 `i `uc ]
+[e $ ! == -> _time `i -> 0 `i 881  ]
+[; ;main.c: 108: {
 "108
+{
+[; ;main.c: 109: LATAbits.LATA2 = 0;
+"109
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 110: LATCbits.LATC0 = 0;
+"110
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 111: LATCbits.LATC1 = 1;
+"111
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"112
 }
 [e :U 881 ]
-[; ;main.c: 108: }
-[; ;main.c: 110: if(!EEPROM_Buffer[1])
-"110
-[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 882  ]
-[; ;main.c: 111: {
-"111
-{
-[; ;main.c: 112: LATC = LATC & 0xE3;
-"112
-[e = _LATC -> & -> _LATC `i -> 227 `i `uc ]
+[; ;main.c: 112: }
+[; ;main.c: 113: if (time == 1)
 "113
-}
-[e :U 882 ]
-[; ;main.c: 113: }
-[; ;main.c: 115: if(!EEPROM_Buffer[2])
-"115
-[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 883  ]
-[; ;main.c: 116: {
-"116
+[e $ ! == -> _time `i -> 1 `i 882  ]
+[; ;main.c: 114: {
+"114
 {
-[; ;main.c: 117: LATCbits.LATC5 = 0;
+[; ;main.c: 115: LATAbits.LATA2 = 0;
+"115
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 116: LATCbits.LATC0 = 1;
+"116
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 117: LATCbits.LATC1 = 0;
 "117
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
 "118
 }
-[e :U 883 ]
+[e :U 882 ]
 [; ;main.c: 118: }
-[; ;main.c: 120: if(!EEPROM_Buffer[3])
+[; ;main.c: 119: if (time == 2)
+"119
+[e $ ! == -> _time `i -> 2 `i 883  ]
+[; ;main.c: 120: {
 "120
-[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 884  ]
-[; ;main.c: 121: {
-"121
 {
-[; ;main.c: 122: LATAbits.LATA4 = 0;
+[; ;main.c: 121: LATAbits.LATA2 = 1;
+"121
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 122: LATCbits.LATC0 = 0;
 "122
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 123: LATCbits.LATC1 = 0;
 "123
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"124
+}
+[e :U 883 ]
+"125
+}
+[e :U 880 ]
+[; ;main.c: 124: }
+[; ;main.c: 125: }
+[; ;main.c: 127: if(EEPROM_Buffer[2])
+"127
+[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 884  ]
+[; ;main.c: 128: {
+"128
+{
+[; ;main.c: 129: if(EEPROM_Buffer[4])
+"129
+[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 885  ]
+[; ;main.c: 130: {
+"130
+{
+[; ;main.c: 131: LATCbits.LATC2 = flashtaillight;
+"131
+[e = . . _LATCbits 0 2 _flashtaillight ]
+[; ;main.c: 132: LATCbits.LATC3 = 1;
+"132
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"133
+}
+[; ;main.c: 133: }
+[e $U 886  ]
+"134
+[e :U 885 ]
+[; ;main.c: 134: else
+[; ;main.c: 135: {
+"135
+{
+[; ;main.c: 136: LATCbits.LATC2 = 0;
+"136
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 137: LATCbits.LATC3 = 1;
+"137
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+"138
+}
+[e :U 886 ]
+"139
 }
 [e :U 884 ]
-[; ;main.c: 123: }
-[; ;main.c: 126: if((!EEPROM_Buffer[0]) && (!EEPROM_Buffer[1]) ) time = 0;
-"126
-[e $ ! && ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 885  ]
-[e = _time -> -> 0 `i `uc ]
-[e :U 885 ]
-"128
+[; ;main.c: 138: }
+[; ;main.c: 139: }
+[; ;main.c: 141: if(EEPROM_Buffer[3])
+"141
+[e $ ! != -> *U + &U _EEPROM_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 887  ]
+[; ;main.c: 142: {
+"142
+{
+[; ;main.c: 143: LATAbits.LATA5 = 1;
+"143
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+"144
 }
-[e :U 872 ]
-"72
-[e $U 873  ]
-[e :U 874 ]
-[; ;main.c: 128: }
-[; ;main.c: 129: }
-"129
-[e :UE 871 ]
+[e :U 887 ]
+[; ;main.c: 144: }
+[; ;main.c: 148: if(!EEPROM_Buffer[0])
+"148
+[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 888  ]
+[; ;main.c: 149: {
+"149
+{
+[; ;main.c: 150: LATAbits.LATA4 = 0;
+"150
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 151: LATCbits.LATC5 = 0;
+"151
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 152: LATCbits.LATC4 = 0;
+"152
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+"153
+}
+[e :U 888 ]
+[; ;main.c: 153: }
+[; ;main.c: 155: if(!EEPROM_Buffer[1])
+"155
+[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 889  ]
+[; ;main.c: 156: {
+"156
+{
+[; ;main.c: 157: LATAbits.LATA2 = 0;
+"157
+[e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 158: LATCbits.LATC0 = 0;
+"158
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 159: LATCbits.LATC1 = 0;
+"159
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"160
+}
+[e :U 889 ]
+[; ;main.c: 160: }
+[; ;main.c: 162: if(!EEPROM_Buffer[2])
+"162
+[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 890  ]
+[; ;main.c: 163: {
+"163
+{
+[; ;main.c: 164: LATCbits.LATC3 = 0;
+"164
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+"165
+}
+[e :U 890 ]
+[; ;main.c: 165: }
+[; ;main.c: 167: if(!EEPROM_Buffer[3])
+"167
+[e $ ! ! != -> *U + &U _EEPROM_Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 891  ]
+[; ;main.c: 168: {
+"168
+{
+[; ;main.c: 169: LATAbits.LATA5 = 0;
+"169
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+"170
+}
+[e :U 891 ]
+[; ;main.c: 170: }
+[; ;main.c: 173: if((!EEPROM_Buffer[0]) && (!EEPROM_Buffer[1]) ) time = 0;
+"173
+[e $ ! && ! != -> *U + &U _EEPROM_Buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i ! != -> *U + &U _EEPROM_Buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _EEPROM_Buffer `ui `ux `i -> -> -> 0 `i `Vuc `i 892  ]
+[e = _time -> -> 0 `i `uc ]
+[e :U 892 ]
+"175
+}
+[e :U 873 ]
+"74
+[e $U 874  ]
+[e :U 875 ]
+[; ;main.c: 175: }
+[; ;main.c: 176: }
+"176
+[e :UE 872 ]
 }
