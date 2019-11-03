@@ -125,7 +125,7 @@ void TMR0_ISR(void)
     // clear the TMR0 interrupt flag
     PIR0bits.TMR0IF = 0;
     
-    time++;
+    time++;  // VARIABLE FOR TURN SIGNAL SEQUENCE
    
     if(time >= 3) time = 0;
 

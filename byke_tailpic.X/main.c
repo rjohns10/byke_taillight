@@ -1,4 +1,13 @@
 /**
+  
+ Program: Capstone byke - Taillight controller
+ Date: 01/10/19
+ Author:
+ Modified: Tanner L
+ Desc: Taillight Controller - Controls taillight operation based on I2C
+       register values
+  
+ 
   Generated Main Source File
 
   Company:
@@ -43,8 +52,25 @@
 
 #include "mcc_generated_files/mcc.h"
 
+#define OFF 0
+#define ON 1
+#define TRUE 1
+#define LEFTTURN 0
+#define RIGHTTURN 1
+#define TAILLIGHT 2
+#define BRAKELIGHT 5
+#define LASERS 3
+#define FLASHING 4
+#define TEMPERATURE 6
+
 /*
-                         Main application
+ * -----------------------------------------------------
+ * Function: main
+ * Date: 01/10/19
+ * Author: Tanner L
+ * Modified:
+ * Desc: Program loop 
+ * ------------------------------------------------------
  */
 void main(void)
 {
@@ -71,109 +97,118 @@ void main(void)
     
     uint16_t picTemperature = 0;
     
-    while (1)
+    while (TRUE)
     {
         
         picTemperature = ADC_GetConversion(channel_Temp);
         
-        EEPROM_Buffer[6] = picTemperature/10;
+        EEPROM_Buffer[TEMPERATURE] = picTemperature/10;
                 
        // on
-        if(EEPROM_Buffer[0])                //left
+        if(EEPROM_Buffer[LEFTTURN])              // LEFT TURN SEQUENCE ON
             {
             if (time == 0)
                 {
-                LATAbits.LATA4 = 0;
-                LATCbits.LATC5 = 0;
-                LATCbits.LATC4 = 1;
+                LATAbits.LATA4 = OFF;
+                LATCbits.LATC5 = OFF;
+                LATCbits.LATC4 = ON;
                 }
             if (time == 1)
                 {
-                LATAbits.LATA4 = 0;
-                LATCbits.LATC5 = 1;
-                LATCbits.LATC4 = 0;
+                LATAbits.LATA4 = OFF;
+                LATCbits.LATC5 = ON;
+                LATCbits.LATC4 = OFF;
                 }
             if (time == 2)
                 {
-                LATAbits.LATA4 = 1;
-                LATCbits.LATC5 = 0;
-                LATCbits.LATC4 = 0;
+                LATAbits.LATA4 = ON;
+                LATCbits.LATC5 = OFF;
+                LATCbits.LATC4 = OFF;
                 }
             }
 
         
-        if(EEPROM_Buffer[1])                //right
+        if(EEPROM_Buffer[RIGHTTURN])              // RIGHT TURN SEQUENCE ON
             {
             if (time == 0)
                 {
-                LATAbits.LATA2 = 0;
-                LATCbits.LATC0 = 0;
-                LATCbits.LATC1 = 1;
+                LATAbits.LATA2 = OFF;
+                LATCbits.LATC0 = OFF;
+                LATCbits.LATC1 = ON;
                 }
             if (time == 1)
                 {
-                LATAbits.LATA2 = 0;
-                LATCbits.LATC0 = 1;
-                LATCbits.LATC1 = 0;
+                LATAbits.LATA2 = OFF;
+                LATCbits.LATC0 = ON;
+                LATCbits.LATC1 = OFF;
                 }
             if (time == 2)
                 {
-                LATAbits.LATA2 = 1;
-                LATCbits.LATC0 = 0;
-                LATCbits.LATC1 = 0;
+                LATAbits.LATA2 = ON;
+                LATCbits.LATC0 = OFF;
+                LATCbits.LATC1 = OFF;
                 }
             }
         
-        if(EEPROM_Buffer[2])                //tail light
+        if(EEPROM_Buffer[BRAKELIGHT])            // BRAKE LIGHT ON
             {
-            if(EEPROM_Buffer[4])
+            LATCbits.LATC3 = ON;
+            }
+        
+        if(EEPROM_Buffer[TAILLIGHT])             // TAILLIGHT ON
+            {
+            if(EEPROM_Buffer[FLASHING])          // TAILLIGHT FLASH OPTION ON
                 {
                 LATCbits.LATC2 = flashtaillight;
-                LATCbits.LATC3 = 1;
                 }
             else
                 {
-                LATCbits.LATC2 = 0;
-                LATCbits.LATC3 = 1;
+                LATCbits.LATC2 = ON;
                 }
             }
         
-        if(EEPROM_Buffer[3])                //laser
+        if(EEPROM_Buffer[LASERS])               // LASERS ON
             {
-            LATAbits.LATA5 = 1;
+            LATAbits.LATA5 = ON;
             }
         
         
-        // off
-        if(!EEPROM_Buffer[0])                //left
+        // OFF
+        if(!EEPROM_Buffer[LEFTTURN])            // LEFT TURN OFF
             {
-            LATAbits.LATA4 = 0;
-            LATCbits.LATC5 = 0;
-            LATCbits.LATC4 = 0;
+            LATAbits.LATA4 = OFF;
+            LATCbits.LATC5 = OFF;
+            LATCbits.LATC4 = OFF;
             }
         
-        if(!EEPROM_Buffer[1])                //right
+        if(!EEPROM_Buffer[RIGHTTURN])           // RIGHT TURN OFF
             {
-            LATAbits.LATA2 = 0;
-            LATCbits.LATC0 = 0;
-            LATCbits.LATC1 = 0;
+            LATAbits.LATA2 = OFF;
+            LATCbits.LATC0 = OFF;
+            LATCbits.LATC1 = OFF;
             }
         
-        if(!EEPROM_Buffer[2])                //tail light
+        if(!EEPROM_Buffer[TAILLIGHT])           // TAILLIGHT OFF
             {
-            LATCbits.LATC3 = 0;
+            LATCbits.LATC2 = OFF;
             }
         
-        if(!EEPROM_Buffer[3])                //laser
+        if(!EEPROM_Buffer[BRAKELIGHT])          // BRAKE LIGHT OFF
             {
-            LATAbits.LATA5 = 0;
+            LATCbits.LATC3 = OFF;
+            }
+        
+        if(!EEPROM_Buffer[LASERS])              // LASERS OFF
+            {
+            LATAbits.LATA5 = OFF;
             }
         
 
-        if((!EEPROM_Buffer[0]) && (!EEPROM_Buffer[1]) ) time = 0;
+        if((!EEPROM_Buffer[LEFTTURN]) && (!EEPROM_Buffer[RIGHTTURN])) time = 0;
         
-    }
-}
+    } // END OF WHILE LOOP
+    
+} // END OF main::
 /**
  End of File
 */

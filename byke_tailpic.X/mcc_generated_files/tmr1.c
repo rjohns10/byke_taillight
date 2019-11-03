@@ -56,7 +56,8 @@
 */
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
-volatile uint8_t flashtaillight = 0;
+
+volatile uint8_t flashtaillight = 0; // VARIABLE FOR FLASHING TAILLIGHT
 /**
   Section: TMR1 APIs
 */
@@ -167,7 +168,11 @@ void TMR1_ISR(void)
     // Clear the TMR1 interrupt flag
     PIR4bits.TMR1IF = 0;
     TMR1_WriteTimer(timer1ReloadVal);
-    flashtaillight++;
+    
+    flashtaillight = !flashtaillight; // VARIABLE FOR FLASHING TAILLIGHT
+    
+    //flashtaillight++; 
+    
     if(TMR1_InterruptHandler)
     {
         TMR1_InterruptHandler();

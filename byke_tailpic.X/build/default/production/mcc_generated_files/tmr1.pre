@@ -9641,9 +9641,10 @@ void TMR1_DefaultInterruptHandler(void);
 # 57 "mcc_generated_files/tmr1.c"
 volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
+
 volatile uint8_t flashtaillight = 0;
 
-# 64
+# 65
 void TMR1_Initialize(void)
 {
 
@@ -9750,7 +9751,11 @@ void TMR1_ISR(void)
 
 PIR4bits.TMR1IF = 0;
 TMR1_WriteTimer(timer1ReloadVal);
-flashtaillight++;
+
+flashtaillight = !flashtaillight;
+
+
+
 if(TMR1_InterruptHandler)
 {
 TMR1_InterruptHandler();

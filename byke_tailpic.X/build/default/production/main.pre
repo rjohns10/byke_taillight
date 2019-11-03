@@ -9752,19 +9752,19 @@ void OSCILLATOR_Initialize(void);
 # 99
 void PMD_Initialize(void);
 
-# 49 "main.c"
+# 75 "main.c"
 void main(void)
 {
 
 SYSTEM_Initialize();
 
-# 58
+# 84
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 69
+# 95
 TMR0_StartTimer();
 TMR1_StartTimer();
 
@@ -9823,17 +9823,20 @@ LATCbits.LATC1 = 0;
 }
 }
 
+if(EEPROM_Buffer[5])
+{
+LATCbits.LATC3 = 1;
+}
+
 if(EEPROM_Buffer[2])
 {
 if(EEPROM_Buffer[4])
 {
 LATCbits.LATC2 = flashtaillight;
-LATCbits.LATC3 = 1;
 }
 else
 {
-LATCbits.LATC2 = 0;
-LATCbits.LATC3 = 1;
+LATCbits.LATC2 = 1;
 }
 }
 
@@ -9860,6 +9863,11 @@ LATCbits.LATC1 = 0;
 
 if(!EEPROM_Buffer[2])
 {
+LATCbits.LATC2 = 0;
+}
+
+if(!EEPROM_Buffer[5])
+{
 LATCbits.LATC3 = 0;
 }
 
@@ -9869,8 +9877,9 @@ LATAbits.LATA5 = 0;
 }
 
 
-if((!EEPROM_Buffer[0]) && (!EEPROM_Buffer[1]) ) time = 0;
+if((!EEPROM_Buffer[0]) && (!EEPROM_Buffer[1])) time = 0;
 
 }
+
 }
 
